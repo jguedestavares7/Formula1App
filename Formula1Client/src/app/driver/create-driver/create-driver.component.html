@@ -1,0 +1,54 @@
+<div class= "create-edit-driver">
+    <h1>{{isEdit ? "Edit the driver" : "Add new driver"}}</h1>
+    <form class= "form-create-edit-driver" [formGroup]= "driverForm" (ngSubmit)= "editOrSaveForm()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Number</mat-label>
+            <input type= "number" matInput formControlName="number">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Abbreviation</mat-label>
+            <input matInput formControlName="abbreviation">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Nationality</mat-label>
+            <input matInput formControlName="nationality">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birthday</mat-label>
+            <input matInput [matDatepicker]= "birthday" formControlName="birthday">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]= "birthday"></mat-datepicker-toggle>
+            <mat-datepicker #birthday></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Team</mat-label>
+            <mat-select formControlName="team">
+                <mat-option *ngFor= "let team of teams" [value]= "team">
+                  {{team.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="actions-available">
+            <button mat-fab color="orange" routerLink="../list" aria-label="Return to drivers list">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-fab color="green" class= "actions-available-btn-align" [disabled]= "driverForm.invalid" type="submit" aria-label="Save form">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-fab *ngIf= "isEdit" color="warn" type="button" (click)= "delete()" aria-label="Delete driver">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>
+
+

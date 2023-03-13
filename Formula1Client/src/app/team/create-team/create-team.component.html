@@ -1,0 +1,36 @@
+<div class= "create-edit-team">
+    <h1>{{isEdit ? "Edit the team" : "Add new team"}}</h1>
+    <form class= "form-create-edit-team" [formGroup]= "teamForm" (ngSubmit)= "editOrSaveForm()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Car name</mat-label>
+            <input matInput formControlName="carName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Engine</mat-label>
+            <input matInput formControlName="engine">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Director</mat-label>
+            <input matInput formControlName="director">
+        </mat-form-field>
+        <div class="actions-available">
+            <button mat-fab color="cornflowerblue" routerLink="../list" aria-label="Return to teams list">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-fab color="green" class= "actions-available-btn-align" [disabled]= "teamForm.invalid" type="submit" aria-label="Save team">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-fab *ngIf= "isEdit" color="warn" type="button" (click)= "delete()" aria-label="Delete team">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,26 @@
+h1 {
+    color: orange;
+}
+
+.create-edit-driver {
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.form-create-edit-driver {
+    display: grid;
+}
+
+.actions-available {
+    text-align: center;
+}
+
+.actions-available-btn-align {
+    margin-left: 40px;
+    margin-right: 40px;
+    color: green;
+}
+
+.mdc-fab.mat-mdc-fab.mat-orange {
+    color: orange;
+}

@@ -1,0 +1,28 @@
+<div class= "list-team-grid">
+    <h1>Teams list</h1>
+    <div class="team-grid">
+        <table mat-table [dataSource] = "teams" matSort class="mat-elevation-z8">
+            <!-- Define the columns dynamically -->
+            <ng-container *ngFor= "let column of columnsToDisplay" [matColumnDef]= "column">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ titles[column]}} </th>
+                <td mat-cell *matCellDef= "let team"> {{team[column]}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef= "columnsToDisplay"></tr>
+            <tr mat-row class="team" *matRowDef= "let row; columns: columnsToDisplay" (click)= "editTeam(row)"></tr>
+        </table>
+        <div class= "search-pagination">
+            <mat-form-field class= "search-pagination-child">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)= "filterTeam($event)" placeholder="Search some propertie of the team">
+            </mat-form-field>
+            <mat-paginator class= "search-pagination-child" [pageSizeOptions]= "[5, 10, 25, 100]" aria-label="Select page of drivers"></mat-paginator>
+        </div>
+        
+        <div class="add-button-container">
+            <button mat-fab color="cornflowerblue" routerLink="../create" aria-label="Add a new team">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

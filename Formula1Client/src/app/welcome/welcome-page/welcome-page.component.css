@@ -1,0 +1,43 @@
+/* .d-flex.justify-content-center {
+    margin-top: 100px;
+} */
+
+.titles-welcome-page {
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.carousel-welcome-page {
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.welcome-actions-buttons {
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.mat-mdc-raised-button.mat-cornflowerblue {
+    color: cornflowerblue;
+}
+
+.mat-mdc-raised-button.mat-orange {
+    color: orange;
+}
+
+.mat-mdc-raised-button.mat-green {
+    color: green;
+}
+
+.align-buttons-welcome {
+    margin-left: 40px;
+    margin-right: 40px;
+}

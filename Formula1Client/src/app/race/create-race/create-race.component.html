@@ -1,0 +1,49 @@
+<div class= "create-edit-race">
+    <h1>{{isEdit ? "Edit the race" : "Add new race"}}</h1>
+    <form class= "form-create-edit-race" [formGroup]= "raceForm" (ngSubmit)= "editOrSaveForm()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Number of laps</mat-label>
+            <input type= "number" matInput formControlName="numberLaps">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]= "date" formControlName="date">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]= "date"></mat-datepicker-toggle>
+            <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Winner driver</mat-label>
+            <mat-select formControlName="winnerDriver">
+                <mat-option *ngFor= "let driver of drivers" [value]= "driver">
+                  {{driver.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="actions-available">
+            <button mat-fab color="green" routerLink="../list" aria-label="Return to race list">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-fab color="green" class= "actions-available-btn-align" [disabled]= "raceForm.invalid" type="submit" aria-label="Save form">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-fab *ngIf= "isEdit" color="warn" type="button" (click)= "delete()" aria-label="Delete race">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </form>
+</div>
+
+
